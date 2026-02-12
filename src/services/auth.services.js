@@ -1,5 +1,4 @@
 import { userRepository } from '../repository/user.repository.js';
-import { cartRepository } from '../repository/cart.repository.js';
 import { hashPassword, comparePassword } from '../utils/crypto.js';
 import { generateToken,generatePasswordResetToken, verifyPasswordResetToken } from '../utils/jwt.js';
 import { UserResponseDTO, UserCreateDTO } from '../dto/user.dto.js';
@@ -12,11 +11,11 @@ class AuthService {
       throw new Error('El email ya está registrado');
     }
 
-    const newCart = await cartRepository.createCart();
+ 
 
     const userDTO = new UserCreateDTO(userData);
     userDTO.password = hashPassword(userDTO.password);
-    userDTO.cart = newCart._id;
+
 
     const newUser = await userRepository.create(userDTO);
 

@@ -8,8 +8,7 @@ const startServer = async () => {
 
     app.listen(env.port, () => {
       console.log(` Server running on port ${env.port}`);
-      console.log(` Environment: ${env.nodeEnv}`);
-      console.log(`Health check: http://localhost:${env.port}/health`);
+      console.log(` Environment: ${env.nodeEnv}`)
     });
 
   } catch (error) {
