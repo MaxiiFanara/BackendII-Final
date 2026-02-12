@@ -3,7 +3,7 @@
 Sistema completo de backend para e-commerce con autenticación JWT, gestión de productos, carritos y sistema de compras con generación de tickets.
 
 ---
-## 🛠 Tecnologías
+## 🛠Dependencias 
 
 - **Node.js** v18+
 - **Express.js** - Framework web
