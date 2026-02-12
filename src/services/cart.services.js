@@ -20,10 +20,25 @@ class CartService {
     return new CartResponseDTO(cart);
   }
 
-  async createCart(userId = null) {
-    const newCart = await cartRepository.createCart(userId);
-    return new CartResponseDTO(newCart);
+async createCart(userId = null) {
+
+  if (userId) {
+    const existingCart = await cartRepository.getByUser(userId);
+    
+    if (existingCart) {
+      throw new Error('El usuario ya tiene un carrito creado');
+    }
+    
+    
+    const user = await userRepository.getById(userId);
+    if (!user) {
+      throw new Error('Usuario no encontrado');
+    }
   }
+  
+  const newCart = await cartRepository.createCart(userId);
+  return new CartResponseDTO(newCart);
+}
 
   async addProduct(cartId, productData) {
     const cart = await cartRepository.getById(cartId);
