@@ -7,8 +7,8 @@ NODE_ENV=development
 
 
 # URL de conexión a MongoDB
-# Para local: mongodb://localhost:27017/nombre_db
-# Para Atlas: mongodb+srv://usuario:password@cluster.mongodb.net/nombre_db
+ Para local: mongodb://localhost:27017/nombre_db
+ Para Atlas: mongodb+srv://usuario:password@cluster.mongodb.net/nombre_db
 MONGO_URL= valor de la url 
 
 # Secreto para firmar tokens JWT (cambiar en producción)
